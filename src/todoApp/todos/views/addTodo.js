@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
-import './todo.css';
+import '../../todo.css';
 class AddTodo extends Component {
     constructor(props) {
         super(props);

@@ -3,7 +3,7 @@ import '../App.css';
 import { view as Todo } from './todos';
 import { view as Filter } from './filter';
 
-class App extends Component {
+class TodoApp extends Component {
   render() {
     return (
       <div className="App">
@@ -14,4 +14,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default TodoApp;

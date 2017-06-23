@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "react": "^15.6.1",
     "react-addons-perf": "^15.4.2",
     "react-dom": "^15.6.1",
@@ -16,6 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://wwww.reactjs.top/react-redux-todos"
 }
