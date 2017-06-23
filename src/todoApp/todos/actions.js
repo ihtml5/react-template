@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from './actionTypes';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO } from './actionTypes';
 
 let nextTodoId = 0;
 
@@ -17,4 +17,12 @@ export const toggleTodo = (id) => ({
 export const removeTodo = (id) => ({
     id: id,
     type: REMOVE_TODO
+})
+
+
+export const editTodo = ({id, text}) => ({
+    id,
+    type: EDIT_TODO,
+    text,
+    completed: false
 })

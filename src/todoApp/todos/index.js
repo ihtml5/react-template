@@ -1,4 +1,4 @@
 import * as actions from './actions';
-import reducer from './reducer';
+import reducer, { editTodo } from './reducer';
 import view from './views/todos';
-export { actions, reducer, view };
+export { actions, reducer, editTodo, view };

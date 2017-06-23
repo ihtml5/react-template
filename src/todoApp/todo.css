@@ -24,6 +24,7 @@
     background-color: #fff;
     cursor: pointer;
     outline: none;
+    font-weight: 600;
 }
 .tu-todo-filter {
     margin-right: 10px;
@@ -66,4 +67,7 @@
 }
 .tu-todo-filters {
     margin-top: 20px;
+}
+.tu-todos-count {
+    margin-left: 3px;
 }
