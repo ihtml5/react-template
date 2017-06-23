@@ -1,0 +1,106 @@
+.App {
+	text-align: center;
+}
+.App-logo {
+	-webkit-animation: App-logo-spin infinite 20s linear;
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
+}
+.App-header {
+	background-color: #222;
+	height: 150px;
+	padding: 20px;
+	color: #fff;
+}
+.App-intro {
+	font-size: large;
+}
+@-webkit-keyframes App-logo-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(1turn);
+		transform: rotate(1turn);
+	}
+}
+@keyframes App-logo-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(1turn);
+		transform: rotate(1turn);
+	}
+}
+*, :after, :before {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+}
+.tu-todos-list {
+	margin-top: 10px;
+}
+.tu-new-todo {
+	width: 60%;
+	background: #fff;
+	text-indent: 1em;
+}
+.tu-add-btn, .tu-new-todo {
+	height: 35px;
+	border: 1px solid #ddd;
+	outline: none;
+}
+.tu-add-btn {
+	margin-left: 10px;
+	width: 50px;
+	background-color: #fff;
+	cursor: pointer;
+}
+.tu-todo-filter {
+	margin-right: 10px;
+}
+.not-selected {
+	color: #aaa;
+	text-decoration: none;
+}
+.tu-todo-list {
+	margin: 0 auto;
+	width: 60%;
+	padding: 5px 0;
+}
+.tu-todo-list li {
+	margin: 0;
+	padding: 4px;
+	height: 34px;
+	text-align: left;
+	vertical-align: middle;
+	line-height: 30px;
+	border-bottom: 1px solid #eee;
+	cursor: pointer;
+}
+.tu-todo-remove {
+	float: right;
+	color: #aaa;
+	cursor: pointer;
+}
+.tu-todo-remove, .tu-todo-remove:hover {
+	-webkit-transition: all .2s ease-in;
+	-o-transition: all ease-in .2s;
+	transition: all .2s ease-in;
+}
+.tu-todo-remove:hover {
+	font-weight: 600;
+	color: #dd514c;
+}
+.tu-todo-filters {
+	margin-top: 20px;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+/*# sourceMappingURL=main.d8457016.css.map*/
