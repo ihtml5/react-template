@@ -36,11 +36,16 @@ class AddTodo extends Component {
         </div>
     }
 }
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state, ownProps) => {
+    return {
+        jsonTodos: JSON.stringify(state.todos)
+    }
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onAdd: (text) => {
             dispatch(addTodo(text));
         }
     }
 }
-export default connect(null, mapDispatchToProps)(AddTodo);
+export default connect(mapStateToProps, mapDispatchToProps)(AddTodo);

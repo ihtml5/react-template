@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import AddTodo  from './addTodo';
 import TodoList from './todoList';
-
-export default class Todo extends Component {
+class Todo extends Component {
     render() {
         return (<div className="tu-todos-list">
             <AddTodo/>
@@ -10,3 +9,5 @@ export default class Todo extends Component {
         </div>);
     }
 }
+
+export default Todo;

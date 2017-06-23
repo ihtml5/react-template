@@ -49,7 +49,7 @@ class TodoItem extends PureComponent {
         const { text, completed, onToggle, onRemove } = this.props;
         const { isEdit, value } = this.state;
         return (
-            <li  onClick={onToggle} style={ completed ? TODOSTYLE.COMPLETED : TODOSTYLE.UNCOMPLETED } onDoubleClick={this.onDoubleClick}>
+            <li onClick={onToggle} style={ completed ? TODOSTYLE.COMPLETED : TODOSTYLE.UNCOMPLETED } onDoubleClick={this.onDoubleClick}>
             { isEdit ? 
                 <form onSubmit={this.onSubmit}>
                     <input className="tu-new-todo" placeholder="请修改待办事项" value={value} onChange={this.onInputChange}/>

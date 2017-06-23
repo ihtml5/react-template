@@ -1,7 +1,9 @@
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO } from './actionTypes';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO, INIT_TODO } from './actionTypes';
 
 export default (state= [], action) => {
     switch (action.type) {
+        case INIT_TODO :
+            return [...action.todos, ...state]
         case ADD_TODO :
             return [
                 {

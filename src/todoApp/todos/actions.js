@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO } from './actionTypes';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO, INIT_TODO } from './actionTypes';
 
 let nextTodoId = 0;
 
@@ -26,3 +26,10 @@ export const editTodo = ({id, text}) => ({
     text,
     completed: false
 })
+
+export const initTodos = (todos) => (
+    {
+        todos,
+        type: INIT_TODO    
+    }
+)

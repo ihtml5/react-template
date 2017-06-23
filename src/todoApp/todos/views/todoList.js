@@ -10,7 +10,7 @@ const TodoList = ({todos, onToggleTodo, onRemoveTodo, onEditTodo }) => {
             {
                 todos && todos.length>0 && todos.map((item, i) => (
                     <TodoItem
-                        key = {item.id}
+                        key = {i}
                         text = {item.text}
                         completed = {item.completed}
                         onToggle = { () => onToggleTodo(item.id)}
@@ -36,8 +36,7 @@ const selectVisibleTodos = (todos, filter) => {
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        todos: selectVisibleTodos(state.todos, state.filter),
-        selectIndex: state.selectIndex
+        todos: selectVisibleTodos(state.todos, state.filter)
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
