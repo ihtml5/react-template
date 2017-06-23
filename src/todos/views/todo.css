@@ -1,0 +1,69 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+.tu-todos-list {
+    margin-top: 10px;
+}
+.tu-new-todo {
+    width: 60%;
+    height: 35px;
+    border: 1px solid #ddd;
+    background: #fff;
+    outline: none;
+    text-indent: 1em;
+}
+.tu-add-btn {
+    margin-left: 10px;
+    width: 50px;
+    height: 35px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+.tu-todo-filter {
+    margin-right: 10px;
+}
+.not-selected {
+    color: #aaa;
+    text-decoration: none;
+}
+.tu-todo-list {
+    margin: 0 auto;
+    width: 60%;
+    padding: 5px 0;
+    /*list-style-type: none;*/
+    /*border: 1px solid #ddd;
+    border-top: none;*/
+}
+.tu-todo-list li {
+    margin: 0;
+    padding: 4px;
+    height: 34px;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 30px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+/*.tu-todo-list li:nth-last-child(1) {
+    border-bottom: none;
+}*/
+.tu-todo-remove {
+    float: right;
+    color: #aaa;
+    cursor: pointer;
+    transition: all ease-in 0.2s;
+}
+.tu-todo-remove:hover {
+    font-weight: 600;
+    color: #dd514c;
+    transition: all ease-in 0.2s;
+}
+.tu-todo-filters {
+    margin-top: 20px;
+}
