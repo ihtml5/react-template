@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
-import TodoApp from './todoApp';
+import '../App.css';
+import { view as Todo } from './todos';
+import { view as Filter } from './filter';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoApp/>
+        <Todo/>
+        <Filter/>
       </div>
     );
   }
