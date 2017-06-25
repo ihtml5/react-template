@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO, INIT_TODO } from './actionTypes';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO, INIT_TODO,NEXT_TODO } from './actionTypes';
 
 export default (state= [], action) => {
     switch (action.type) {
@@ -29,7 +29,7 @@ export default (state= [], action) => {
            return state.map((todoItem, i) => {
                if (todoItem.id === action.id) {
                    return {
-                       ...todoItem, text: action.text
+                       ...todoItem, text: action.text, completed: false
                    } 
                } else {
                    return todoItem
@@ -39,3 +39,12 @@ export default (state= [], action) => {
             return state;
     }
 }
+
+export const setNextTodoId = (state=0, action) => {
+    switch (action.type) {
+        case NEXT_TODO:
+            return action.nextTodoId;
+        default:
+            return state;
+    }
+ }

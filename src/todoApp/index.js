@@ -21,7 +21,7 @@ class TodoApp extends Component {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         getLocalData: (todos) => {
-            dispatch(actions.initTodos(todos));
+          dispatch(actions.initTodos(todos || []));
         }
     }
 }

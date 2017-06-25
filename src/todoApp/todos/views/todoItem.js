@@ -1,5 +1,11 @@
 import React, { PureComponent } from 'react';
 import { KEYCODE, TODOSTYLE } from '../../constants';
+import { toggleTodo, removeTodo } from '../actions';
+import { connect } from 'react-redux';
+const doubleClickThreshold = 250;  //ms
+let lastClick = 0;
+let isDoubleClick = false;
+let thisClickTime = null;
 class TodoItem extends PureComponent {
     constructor(props) {
         super(props);
@@ -16,15 +22,6 @@ class TodoItem extends PureComponent {
             value: e.target.value
         })
     }
-    componentDidMount() {
-        document.onkeydown =  (e) => {
-            if (e.keyCode === KEYCODE.ESC) {
-                this.setState({
-                    isEdit: false
-                });
-            }
-        };
-    }
     onSubmit(e) {
         e.preventDefault();
         const inputVal = this.state.value;
@@ -38,10 +35,26 @@ class TodoItem extends PureComponent {
         });
     }
     onDoubleClick(e) {
+        if (!isDoubleClick) {
+            e.preventDefault();
+            return;
+        }
         this.setState({
             isEdit: !this.state.isEdit
         });
+        isDoubleClick = false;
     } 
+    componentDidMount() {
+        document.onkeydown =  (e) => {
+            if (e.keyCode === KEYCODE.ESC) {
+                console.log(':::', e.keyCode, KEYCODE.ESC);
+                this.setState({
+                    isEdit: false,
+                    value: this.props.text
+                });
+            }
+        };
+    }
     componentWillUnMount() {
         document.onkeydown = null;
     }
@@ -49,7 +62,16 @@ class TodoItem extends PureComponent {
         const { text, completed, onToggle, onRemove } = this.props;
         const { isEdit, value } = this.state;
         return (
-            <li onClick={onToggle} style={ completed ? TODOSTYLE.COMPLETED : TODOSTYLE.UNCOMPLETED } onDoubleClick={this.onDoubleClick}>
+            <li style={ completed ? TODOSTYLE.COMPLETED : TODOSTYLE.UNCOMPLETED } onClick={(e) => {
+                thisClickTime = new Date().getTime();
+                isDoubleClick = thisClickTime - lastClick < doubleClickThreshold;
+                lastClick =  thisClickTime
+                if (!isDoubleClick) {
+                    onToggle();
+                } else {
+                    return;
+                }
+            }} onDoubleClick={this.onDoubleClick}>
             { isEdit ? 
                 <form onSubmit={this.onSubmit}>
                     <input className="tu-new-todo" placeholder="请修改待办事项" value={value} onChange={this.onInputChange}/>
@@ -60,5 +82,11 @@ class TodoItem extends PureComponent {
         );
     }
 }
-
-export default  TodoItem;
+const mapDispatchToProps = (dispatch, ownProps) => {
+    const { id } = ownProps;
+    return  {
+        onToggle: () => dispatch(toggleTodo(id)),
+        onRemove: () => dispatch(removeTodo(id))
+    }
+}
+export default  connect(null, mapDispatchToProps)(TodoItem);
