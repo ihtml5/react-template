@@ -2,10 +2,11 @@ import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO, INIT_TODO } from './acti
 
 let nextTodoId = 0;
 
-export const addTodo = (text) => ({
+export const addTodo = (text,typeId) => ({
     type: ADD_TODO,
     text: text,
     completed: false,
+    typeId: typeId,
     id: nextTodoId++
 });
 

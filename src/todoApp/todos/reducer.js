@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO, INIT_TODO,NEXT_TODO } from './actionTypes';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO, INIT_TODO } from './actionTypes';
 
 export default (state= [], action) => {
     switch (action.type) {
@@ -9,7 +9,8 @@ export default (state= [], action) => {
                 {
                     id: action.id,
                     text: action.text,
-                    completed: false
+                    completed: false,
+                    typeId: action.typeId
                 },
                 ...state
             ];
@@ -39,12 +40,3 @@ export default (state= [], action) => {
             return state;
     }
 }
-
-export const setNextTodoId = (state=0, action) => {
-    switch (action.type) {
-        case NEXT_TODO:
-            return action.nextTodoId;
-        default:
-            return state;
-    }
- }

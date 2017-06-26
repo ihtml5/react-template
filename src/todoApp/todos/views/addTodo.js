@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
+import { view as Badge } from '../../badge';
 import '../../todo.css';
 class AddTodo extends Component {
     constructor(props) {
@@ -10,7 +11,13 @@ class AddTodo extends Component {
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
+        this.onSelectTodoType = this.onSelectTodoType.bind(this);
     }
+    onSelectTodoType (typeId) {
+        this.setState({
+            typeId: typeId
+        })
+    } 
     onInputChange (e) {
         this.setState({
             value: e.target.value
@@ -22,29 +29,36 @@ class AddTodo extends Component {
         if (!inputVal.trim()) {
             return;
         }
-        this.props.onAdd(inputVal)
+        this.props.onAdd(inputVal, this.state.typeId)
         this.setState({
             value: ''
         });
     }
     render() {
+        const { todoTypes } = this.props;
+        const { typeId } = this.state;
         return <div className="tu-add-todo">
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit} className="tu-todos-form">
                 <input className="tu-new-todo" placeholder="请添加待办事项" value={this.state.value} onChange={this.onInputChange}/>
                 <button className="tu-add-btn" type="submit">添加</button>
             </form>
+            <div className="tu-badges">
+                {
+                    todoTypes.map((todoTypeItem, i) => <Badge selected={ typeId === todoTypeItem.id} key={todoTypeItem.id} onSelectTodoType={this.onSelectTodoType} typeId={todoTypeItem.id} color={todoTypeItem.color} name={todoTypeItem.name}/>)
+                }
+            </div>
         </div>
     }
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        jsonTodos: JSON.stringify(state.todos)
+        todoTypes: state.todoTypes
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        onAdd: (text) => {
-            dispatch(addTodo(text));
+        onAdd: (text, typeId) => {
+            dispatch(addTodo(text, typeId));
         }
     }
 }

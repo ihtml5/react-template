@@ -1,10 +1,10 @@
 import React  from 'react';
+import { createSelector } from 'reselect';
 import TodoItem from './todoItem';
-import { editTodo } from '../actions';
 import { FILTERTYPES } from '../../constants';
 import {  connect } from 'react-redux';
 
-const TodoList = ({todos, onToggleTodo, onRemoveTodo, onEditTodo }) => {
+const TodoList = ({todos, onToggleTodo, onRemoveTodo }) => {
     return (
         <ol className="tu-todo-list">
             {
@@ -14,14 +14,16 @@ const TodoList = ({todos, onToggleTodo, onRemoveTodo, onEditTodo }) => {
                         id = {item.id}
                         text = {item.text}
                         completed = {item.completed}
-                        onEdit = { (text) => onEditTodo({text, id: item.id})}
+                        typeId = {item.typeId}
                         />
                 ))
             }
         </ol>
     );
 }
-const selectVisibleTodos = (todos, filter) => {
+const getVisibilityFilter  = (state) => state.filter;
+const getTodos = (state) => state.todos;
+const selectVisibleTodos = (filter, todos) => {
     switch(filter) {
         case FILTERTYPES.All:
             return todos;
@@ -33,16 +35,12 @@ const selectVisibleTodos = (todos, filter) => {
             throw new Error('unsupported filter');
     }
 }
+const getVisibleTodos = createSelector(
+  [ getVisibilityFilter, getTodos ],
+  selectVisibleTodos);
 const mapStateToProps = (state, ownProps) => {
     return {
-        todos: selectVisibleTodos(state.todos, state.filter)
+        todos: getVisibleTodos(state)
     }
 }
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        onEditTodo: ({id, text}) => {
-            dispatch(editTodo({id, text}))
-        }
-    }
-};
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+export default connect(mapStateToProps)(TodoList);

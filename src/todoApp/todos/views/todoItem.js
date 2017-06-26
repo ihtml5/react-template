@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import { KEYCODE, TODOSTYLE } from '../../constants';
-import { toggleTodo, removeTodo } from '../actions';
+import { toggleTodo, removeTodo, editTodo } from '../actions';
 import { connect } from 'react-redux';
+import {view as Badge } from '../../badge';
+
 const doubleClickThreshold = 250;  //ms
 let lastClick = 0;
 let isDoubleClick = false;
@@ -25,11 +27,12 @@ class TodoItem extends PureComponent {
     onSubmit(e) {
         e.preventDefault();
         const inputVal = this.state.value;
+        const { onEdit, id } = this.props;
         if (!inputVal.trim()) {
             alert('待办事项不能为空');
             return;
         }
-        this.props.onEdit(this.state.value);
+        onEdit({id, text:this.state.value});
         this.setState({
             isEdit: false
         });
@@ -59,7 +62,7 @@ class TodoItem extends PureComponent {
         document.onkeydown = null;
     }
     render() {
-        const { text, completed, onToggle, onRemove } = this.props;
+        const { text, completed, onToggle, onRemove, badgeState } = this.props;
         const { isEdit, value } = this.state;
         return (
             <li style={ completed ? TODOSTYLE.COMPLETED : TODOSTYLE.UNCOMPLETED } onClick={(e) => {
@@ -77,16 +80,30 @@ class TodoItem extends PureComponent {
                     <input className="tu-new-todo" placeholder="请修改待办事项" value={value} onChange={this.onInputChange}/>
                 </form> : text
             }
+            { badgeState && <Badge color={badgeState.color} name={badgeState.name} typeId={badgeState.id} asLabel key={badgeState.id}/>}
             <span onClick={onRemove} className="tu-todo-remove">x</span>
             </li>
         );
+    }
+}
+const getBadgeStateById = (todoTypes, id) => {
+    return todoTypes.filter((todoType, i) => {
+        return todoType.id === id
+    });
+}
+const mapStateToProps = (state, ownProps) => {
+    return {
+        badgeState: getBadgeStateById(state.todoTypes, ownProps.typeId)[0]
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
     const { id } = ownProps;
     return  {
         onToggle: () => dispatch(toggleTodo(id)),
-        onRemove: () => dispatch(removeTodo(id))
+        onRemove: () => dispatch(removeTodo(id)),
+        onEdit: ({id, text}) => {
+            dispatch(editTodo({id, text}))
+        }
     }
 }
-export default  connect(null, mapDispatchToProps)(TodoItem);
+export default  connect(mapStateToProps, mapDispatchToProps)(TodoItem);
