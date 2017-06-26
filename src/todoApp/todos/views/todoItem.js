@@ -64,8 +64,26 @@ class TodoItem extends PureComponent {
     render() {
         const { text, completed, onToggle, onRemove, badgeState } = this.props;
         const { isEdit, value } = this.state;
+        let todoItemStyle = null;
+        if (completed) {
+            if (isEdit) {
+                todoItemStyle = Object.assign({}, TODOSTYLE.COMPLETED, {
+                    borderBottom: '1px solid red'
+                })
+            } else {
+                todoItemStyle = TODOSTYLE.COMPLETED
+            }
+        } else {
+            if (isEdit) {
+                todoItemStyle = Object.assign({}, TODOSTYLE.UNCOMPLETED, {
+                    borderBottom: '1px solid red'
+                })
+            } else {
+                todoItemStyle = TODOSTYLE.UNCOMPLETED
+            }
+        }
         return (
-            <li style={ completed ? TODOSTYLE.COMPLETED : TODOSTYLE.UNCOMPLETED } onClick={(e) => {
+            <li style={todoItemStyle} onClick={(e) => {
                 thisClickTime = new Date().getTime();
                 isDoubleClick = thisClickTime - lastClick < doubleClickThreshold;
                 lastClick =  thisClickTime
@@ -77,7 +95,7 @@ class TodoItem extends PureComponent {
             }} onDoubleClick={this.onDoubleClick}>
             { isEdit ? 
                 <form onSubmit={this.onSubmit}>
-                    <input className="tu-new-todo" placeholder="请修改待办事项" value={value} onChange={this.onInputChange}/>
+                    <input className="tu-new-todo tu-edit-todo" placeholder="请修改待办事项" value={value} onChange={this.onInputChange}/>
                 </form> : text
             }
             { badgeState && <Badge color={badgeState.color} name={badgeState.name} typeId={badgeState.id} asLabel key={badgeState.id}/>}

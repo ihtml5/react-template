@@ -25,11 +25,11 @@ class AddTodo extends Component {
     }
     onSubmit(e) {
         e.preventDefault();
-        const inputVal = this.state.value;
-        if (!inputVal.trim()) {
+        const { value, typeId } = this.state;
+        if (!value.trim() || typeof typeId === 'undefined') {
             return;
         }
-        this.props.onAdd(inputVal, this.state.typeId)
+        this.props.onAdd(value, typeId)
         this.setState({
             value: ''
         });

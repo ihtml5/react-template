@@ -28,9 +28,9 @@ export const editTodo = ({id, text}) => ({
     completed: false
 })
 
-export const initTodos = (todos) => (
-    {
+export const initTodos = (todos) => {
+    return  {
         todos,
         type: INIT_TODO    
     }
-)
+}

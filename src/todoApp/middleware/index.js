@@ -6,8 +6,6 @@ const localStorageMw = store => next => action => {
     }
     if ((action.id || action.id === 0 ) && action.type === ADD_TODO) {
         action = { ...action, id: baseNextId + action.id}
-        // console.clear();
-        // console.log(':::action', action);
     }
     next(action)
     const todos = store.getState().todos;

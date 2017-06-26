@@ -42,6 +42,7 @@
     border-top: none;*/
 }
 .tu-todo-list li {
+    position: relative;
     margin: 0;
     padding: 4px;
     height: 34px;
@@ -55,7 +56,9 @@
     border-bottom: none;
 }*/
 .tu-todo-remove {
-    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
     color: #aaa;
     cursor: pointer;
     transition: all ease-in 0.2s;
@@ -85,7 +88,7 @@
     border: 1px solid #ddd;
 }
 .tu-badges {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 .tu-badge {
     display: inline-block;
@@ -103,6 +106,9 @@
     cursor: pointer;
 }
 .tu-badge-asLabel {
+    position: absolute;
+    top: 10px;
+    right: 30px;
     margin-left: 10px;
     height: 20px;
     font-size: 10px;
@@ -121,4 +127,9 @@
     line-height: 300px;
     color: #fff;
     font-size: 26px;
+}
+.tu-edit-todo {
+    margin-bottom: 5px;
+    height: 14px;
+    border: none;
 }
