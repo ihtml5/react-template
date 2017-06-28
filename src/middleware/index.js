@@ -1,4 +1,4 @@
-import { INIT_TODO, ADD_TODO } from '../todos/actionTypes';
+import { INIT_TODO, ADD_TODO } from '../todoApp/todos/actionTypes';
 let baseNextId = 0;
 const localStorageMw = store => next => action => {
     if (action.type === INIT_TODO ) {

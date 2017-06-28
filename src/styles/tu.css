@@ -1,0 +1,12 @@
+.tu-options li {
+    float: right;
+    margin-left: 20px;
+}
+.tu-options {
+    padding-right: 20px;
+    list-style-type: none;
+}
+
+.tu-menu-active {
+    color: #555;
+}
