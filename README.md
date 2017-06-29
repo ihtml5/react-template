@@ -4,17 +4,17 @@
 ## 依赖
 **脚手架**
 
-1. [create-react-app]()
+[create-react-app]()
 
 **框架和库**
 
-2. [react](http://facebook.github.io/react)
-3. [redux](http://www.redux.js.org)
-4. [react-router](http://www.github.com/ReactTraning/react-router)
+[react](http://facebook.github.io/react)
+[redux](http://www.redux.js.org)
+[react-router](http://www.github.com/ReactTraning/react-router)
 
 **IDE**
 
-5. [vscode](https://code.visualstudio.com/)
+[vscode](https://code.visualstudio.com/)
 
 **浏览器**
-6. [chrome](https://www.google.cn/chrome/browser/desktop/index.html)
+[chrome](https://www.google.cn/chrome/browser/desktop/index.html)
