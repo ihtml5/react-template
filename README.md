@@ -1,5 +1,6 @@
 # react-template
-帮助开发者快速搭建起基于react和redux的高扩展性项目架构
+
+基于react和redux的高扩展性项目架构
 
 ## 依赖
 **脚手架**
