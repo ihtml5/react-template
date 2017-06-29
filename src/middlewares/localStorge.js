@@ -1,4 +1,4 @@
-import { INIT_TODO, ADD_TODO } from '../todoApp/todos/actionTypes';
+import { INIT_TODO, ADD_TODO } from '../views/todoApp/todos/actionTypes';
 let baseNextId = 0;
 const localStorageMw = store => next => action => {
     if (action.type === INIT_TODO ) {
@@ -8,10 +8,8 @@ const localStorageMw = store => next => action => {
         action = { ...action, id: baseNextId + action.id}
     }
     next(action)
-    const todos = store.getState().todos;
+    let todos = store.getState().todoApp.todos;
     window.localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-export {
-    localStorageMw
-}
+export default localStorageMw;

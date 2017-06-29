@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, IndexLink } from 'react-router';
 class AccordionItem extends Component {
     constructor(props) {
         super(props);
@@ -15,6 +15,16 @@ class AccordionItem extends Component {
             }
         });
     }
+    getListItem(list) {
+        const { isRouter, isIndexLink } = list;
+        if (isRouter && isIndexLink) {
+            return <IndexLink to={list.href} activeClassName="tu-menu-active">{list.text}</IndexLink>
+        } else if (isRouter) {
+            return <Link to={list.href} activeClassName="tu-menu-active">{list.text}</Link>;
+        } else {
+            return undefined;
+        }
+    }                    
     render() {
         const { title, list, isShow, index, resetActiveIndex, memoryIndex} = this.props;
         const { activeHighIndex } = this.state;
@@ -25,13 +35,10 @@ class AccordionItem extends Component {
                     resetActiveIndex(index);
                 }}>{title}</h3>
                 {isShow ? <ul>
-                    {list.map((list, i) => <li key={list.text}>
-                        { 
-                            list.isRouter ? <Link to={list.href} activeClassName="tu-menu-active">{list.text}</Link> :
-                        <a href={list.href} onClick={() => {
-                            resetActiveIndex(index, i);
-                            this.resetHighIndex(-1);
-                    }} style={ i.toString() === ((memoryIndex[0] === index && memoryIndex[1].toString()) || activeHighIndex.toString()) ? { color: '#000', fontWeight: '600'} : null}>{list.text}</a>}</li>)}
+                    {list.map((list, i) => <li key={list.text}>{this.getListItem(list) ||  <a href={list.href} onClick={() => {
+                    resetActiveIndex(index, i);
+                    this.resetHighIndex(-1);
+                }} style={ i.toString() === ((memoryIndex[0] === index && memoryIndex[1].toString()) || activeHighIndex.toString()) ? { color: '#000', fontWeight: '600'} : null}>{list.text}</a>}</li>)}
                 </ul> : null}
             </div>
         );

@@ -111,7 +111,7 @@ const getBadgeStateById = (todoTypes, id) => {
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        badgeState: getBadgeStateById(state.todoTypes, ownProps.typeId)[0]
+        badgeState: getBadgeStateById(state.todoApp.todoTypes, ownProps.typeId)[0]
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

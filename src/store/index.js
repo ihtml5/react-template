@@ -1,23 +1,15 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { reducer as todoReducer } from '../todoApp/todos';
-import { reducer as filterReducer } from '../todoApp/filter';
-import { reducer as selectTodoTypeReducer } from '../todoApp/badge';
-import { reducer as loadingReducer } from '../todoApp/loading';
-import { reducer as navReducer } from '../Nav';
-import { routerReducer } from 'react-router-redux'
-import { localStorageMw } from '../middleware';
+import { localStorageMw } from '../middlewares';
 import Perf  from 'react-addons-perf';
 import thunk from 'redux-thunk';
 import reduxInvariant from 'redux-immutable-state-invariant'
+import reducers from '../reducers';
+import { routerReducer } from 'react-router-redux';
 const win = window;
 win.Perf = Perf;
 const reducer = combineReducers({
-    todos: todoReducer,
-    filter: filterReducer,
-    todoTypes: selectTodoTypeReducer,
-    loading: loadingReducer,
-    routing: routerReducer,
-    menuData: navReducer
+    todoApp: reducers,
+    routing: routerReducer
 });
 const middlewares = [];
 middlewares.push(localStorageMw, thunk);

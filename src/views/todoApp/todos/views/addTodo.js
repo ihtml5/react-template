@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 import { view as Badge } from '../../badge';
-import '../../todo.css';
+import '../../../../styles/todo.css';
 class AddTodo extends Component {
     constructor(props) {
         super(props);
@@ -52,7 +52,7 @@ class AddTodo extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        todoTypes: state.todoTypes
+        todoTypes: state.todoApp.todoTypes
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

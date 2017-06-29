@@ -30,8 +30,8 @@ const getCountByFilter = (todos, filter) => {
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        active: state.filter === ownProps.filter,
-        count: getCountByFilter(state.todos, ownProps.filter)
+        active: state.todoApp.filter === ownProps.filter,
+        count: getCountByFilter(state.todoApp.todos, ownProps.filter)
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => ({

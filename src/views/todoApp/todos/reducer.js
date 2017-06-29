@@ -3,7 +3,7 @@ import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, EDIT_TODO, INIT_TODO } from './acti
 export default (state= [], action) => {
     switch (action.type) {
         case INIT_TODO :
-            return [...action.todos, ...state]
+            return [...action.todos ]
         case ADD_TODO :
             return [
                 {

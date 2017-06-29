@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
-import Accordion from '../../components/Accordion';
+import Accordion from '../../../components/Accordion';
 import { connect } from 'react-redux';
 import { initMenu } from '../actions';
-import '../../styles/tu.css';
+import '../../../styles/tu.css';
 class Nav extends Component {
-    componentDidMount() {
+    componentWillMount() {
         this.props.getInitialMenuData();
     }
     render() {
-        console.clear();
         const { data } = this.props;
         return (
-            <Accordion activeIndex={1} data= {data} fixed width={200}/>
+            <Accordion activeIndex={0} data= {data} fixed width={200}/>
         );
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        data: state.menuData
+        data: state.todoApp.menuData
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
