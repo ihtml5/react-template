@@ -1,4 +1,3 @@
-;
 export default {
     path: 'todos',
     getComponent(nextState, cb) {

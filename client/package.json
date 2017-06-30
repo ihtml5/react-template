@@ -1,0 +1,29 @@
+{
+  "name": "react-redux-todos",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-addons-perf": "^15.4.2",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router": "3.0.5",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.0",
+    "redux-immutable-state-invariant": "^2.0.0",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3002/",
+  "homepage": "https://wwww.reactjs.top/react-redux-todos"
+}
