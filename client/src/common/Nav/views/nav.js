@@ -3,9 +3,9 @@ import Accordion from '../../../components/Accordion';
 import { connect } from 'react-redux';
 import '../../../styles/tu.css';
 
-const Nav = ({data}) => {
+const Nav = ({data, activeIndex, onlyOneOpen }) => {
     return (
-        <Accordion activeIndex={0} data= {data} fixed width={200}/>
+        <Accordion activeIndex={activeIndex || 0} data= {data} onlyOneOpen fixed width={200}/>
     );
 }
 

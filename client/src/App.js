@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import './styles/App.css';
-import { actions, view as Accordion } from './views/Nav';
-import menuData from './config/menu';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { actions, view as Menu } from './common/Nav';
+import menuData from './config/menu';
+import './styles/App.css';
 import './styles/tu.css';
-class App extends Component {
+class App extends PureComponent {
   componentDidMount() {
     this.props.resetMenuData(menuData || [])
   }
   render() {
     return (
       <div className="App">
-        <Accordion/>
+        <Menu activeIndex={1} onlyOneOpen/>
         {this.props.children}
       </div>
     );

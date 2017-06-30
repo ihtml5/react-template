@@ -1,6 +1,5 @@
-import { SELECTTODOTYPE } from './actionTypes';
-
-const selectTodoType = (state=[{
+const SELECTTODOTYPE = 'TODO/BADGE/SELETETODOTYPE';
+const setTodoType = (state=[{
     id: 0,
     name: '紧急',
     color: 'red'
@@ -20,5 +19,11 @@ const selectTodoType = (state=[{
             return state;
     }
 }
-
-export default selectTodoType;
+const selectTodoType = (typeId) => ({
+    type: SELECTTODOTYPE,
+    typeId: typeId
+});
+export {
+    selectTodoType
+}
+export default setTodoType;

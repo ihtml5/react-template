@@ -1,9 +1,13 @@
-import { reducer as todoReducer } from '../views/todoApp/todos';
-import { reducer as filterReducer } from '../views/todoApp/filter';
-import { reducer as selectTodoTypeReducer } from '../views/todoApp/badge';
-import { reducer as loadingReducer } from '../views/todoApp/loading';
-import { reducer as navReducer } from '../views/Nav';
+// 引入 combineReducers
 import {  combineReducers } from 'redux';
+
+// 引入一系列reducer
+
+import { reducer as todoReducer } from '../pages/todoApp/todos';
+import { reducer as filterReducer } from '../pages/todoApp/filter';
+import { reducer as selectTodoTypeReducer } from '../pages/todoApp/badge';
+import { reducer as loadingReducer } from '../pages/todoApp/loading';
+import { reducer as navReducer } from '../common/Nav';
 export default  combineReducers({
     todos: todoReducer,
     filter: filterReducer,

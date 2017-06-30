@@ -1,6 +1,6 @@
 import React from 'react';
-import { setFilter } from '../actions'
 import { connect } from 'react-redux';
+import { setFilter } from '../reducer'
 import { FILTERTYPES } from '../../constants';
 const Link = ({active, children, onClick, count}) => {
     if (active) {
