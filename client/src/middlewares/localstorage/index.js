@@ -1,4 +1,5 @@
 import { INIT_TODO, ADD_TODO } from '../../pages/todoApp/todos/actionTypes';
+import { disableGetLocalStorage } from '../../config';
 let baseNextId = 0;
 const localStorageMw = store => next => action => {
     if (action.type === INIT_TODO ) {
@@ -9,7 +10,9 @@ const localStorageMw = store => next => action => {
     }
     next(action)
     let todos = store.getState().todoApp.todos;
-    window.localStorage.setItem('todos', JSON.stringify(todos));
+    if ( disableGetLocalStorage.indexOf(action.type) === -1 ) {
+        window.localStorage.setItem('todos', JSON.stringify(todos));
+    }
 }
 
 export default localStorageMw;

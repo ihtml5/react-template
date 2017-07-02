@@ -8,7 +8,7 @@ import { actions as todoActions } from './todos';
 class TodoApp extends Component {
   componentDidMount() {
       const { getLocalData } = this.props;
-      getLocalData(JSON.parse(window.localStorage.getItem('todos')));
+      getLocalData(JSON.parse(window.localStorage.getItem('todos') || JSON.stringify([])));
   }
   render() {
     const { loadingStyle } = this.props;
@@ -31,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getLocalData: (todos) => {
-            dispatch(todos.length === 0 ? actions.getInitLoad() : todoActions.initTodos(todos));
+            dispatch(todos.length === 0 ? actions.getInitLoad('http://localhost:3002/users') : todoActions.initTodos(todos));
         }
     }
 }

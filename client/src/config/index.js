@@ -1,0 +1,1 @@
+export const disableGetLocalStorage = ['APP/MENUINIT', '@@INIT', '@@router/LOCATION_CHANGE'];
