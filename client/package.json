@@ -54,9 +54,9 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "start": "nodemon scripts/start.js",
+    "build": "nodemon scripts/build.js",
+    "test": "nodemon scripts/test.js --env=jsdom"
   },
   "proxy": "http://localhost:3002/",
   "homepage": "https://wwww.reactjs.top/react-redux-todos",
