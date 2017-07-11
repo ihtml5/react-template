@@ -1,10 +1,17 @@
 const rootRoute = {
   childRoutes: [ {
     path: '/',
+    indexRoute: require('./home').default,
     component: require('../App').default,
     childRoutes: [
       require('./home').default,
+    ]
+  },{
+    path: '/case',
+    component: require('../App').default,
+    childRoutes: [
       require('./todos').default,
+      require('./counter').default,
     ]
   }, {
     path: '/core',

@@ -54,13 +54,12 @@ const accordionData = [{
 }, {
     title: 'React showCase',
     list: [{
-    text: 'home',
-    href: '/home',
-    isRouter: true,
-    isIndexLink: true
-    }, {
     text: 'todos',
-    href: '/todos',
+    href: '/case/todos',
+    isRouter: true
+},{
+    text: 'counter',
+    href: '/case/counter',
     isRouter: true
 }]}]
 
