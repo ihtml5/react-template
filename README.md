@@ -24,4 +24,4 @@
 
 1. [ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
 2. [React+Redux 入门示例项目](https://github.com/meibin08/react-redux)
-3. [深入浅出react和redux 程墨](https://zhuanlan.zhihu.com/p/26648239）
+3. [深入浅出react和redux 程墨](https://zhuanlan.zhihu.com/p/26648239)
