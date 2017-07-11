@@ -9,7 +9,15 @@
 3. 服务端渲染<span style="color:red;">【尚未开始】</span>
 4. 使用css modules来模块化css【尚未开始】
 
+## 使用方法
 
+1. git clone http://www.github.com/ihtml5/react-template.git
+2. cd react-template
+3. yarn install/ npm install
+4. yarn start/ npm start
+4. cd client
+5. yarn install/ npm install
+6. yarn start/npm start
 ## 参考模式
 
 1. [ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
