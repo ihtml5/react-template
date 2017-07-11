@@ -39,6 +39,17 @@ const accordionData = [{
     text: 'redux',
     href: '/state/redux',
     isRouter: true,
+    }, {
+    text: 'mobx',
+    href: '/state/mobx',
+    isRouter: true,
+    }]
+}, {
+    title: '路由',
+    list: [{
+    text: 'react-router',
+    href: '/router/react-router',
+    isRouter: true,
     }]
 }, {
     title: 'React showCase',
