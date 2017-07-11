@@ -3,6 +3,7 @@ const rootRoute = {
     path: '/',
     component: require('../App').default,
     childRoutes: [
+      require('./home').default,
       require('./todos').default,
     ]
   }, {
@@ -11,7 +12,7 @@ const rootRoute = {
         require.ensure([], (require) => {
         // 在后面加 .default
         cb(null, require('../App').default)
-      })
+      }, 'index')
     }
   }]
 }

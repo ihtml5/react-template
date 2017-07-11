@@ -1,9 +1,9 @@
 export default {
-    path: 'todos',
+    path: 'home',
     getComponent(nextState, cb) {
         require.ensure([], (require) => {
         // 在后面加 .default
-        cb(null, require('../pages/').todoApp)
-    }, 'todos');
+        cb(null, require('../pages/').Home)
+    }, 'home');
    }
 }
