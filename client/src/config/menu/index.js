@@ -61,6 +61,10 @@ const accordionData = [{
     text: 'counter',
     href: '/case/counter',
     isRouter: true
+},{
+    text: 'countdown',
+    href: '/case/countdown',
+    isRouter: true
 }]}]
 
 export default accordionData;

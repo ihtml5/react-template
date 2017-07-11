@@ -7,11 +7,19 @@ const rootRoute = {
       require('./home').default,
     ]
   },{
+    path: '/router',
+    indexRoute: require('./home').default,
+    component: require('../App').default,
+    childRoutes: [
+      require('./router').default,
+    ]
+  },{
     path: '/case',
     component: require('../App').default,
     childRoutes: [
       require('./todos').default,
       require('./counter').default,
+      require('./countdown').default,
     ]
   }, {
     path: '/core',

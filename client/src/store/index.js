@@ -8,7 +8,7 @@ import { routerReducer,  routerMiddleware } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import { reducer as counterReducer } from '../pages/counter/';
 // Apply the middleware to the store
-import resetEnhancer from './reset';
+import { resetEnhancer } from './enhancers';
 const win = window;
 win.Perf = Perf;
 const originalReducers = {
