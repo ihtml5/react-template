@@ -2,6 +2,8 @@
 
 基于react和redux的高扩展性项目架构
 
+![](./doc/assets/i/intro.png)
+
 ## 包含的主要功能
 
 1. 集成react生态最常用的库包括react, redux, react-router, react-thunk 等【已完成】
